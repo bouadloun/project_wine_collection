@@ -1,0 +1,11 @@
+[{
+    "winery": "String",
+    "wine": "Índole 2021 Tempranillo",
+    "type": {
+        "enum": ["rose"]
+    },
+    "about": "An organic, easy-going, fruity, elegant and crisp wine with splendid aromatic intensity and notes of sweet berries, juicy strawberry and an elegant floral touch. The wine is refreshing and well balanced, causing a real feast of summer fruit sensations. Drink with sunshine!", 
+    "origin": "Valencia, Spain",
+    "image": "https://images.squarespace-cdn.com/content/v1/5523b5fbe4b041667bc07c28/1657698847928-KRF7NEMRSPR7IW6FA7ZV/Screenshot+2022-07-12+at+22.14.14.png?format=2500w",
+    "rating": 4.8
+}]
