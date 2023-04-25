@@ -77,6 +77,7 @@ a {
   margin: 40px 0 0;
   padding: 16px;
   border-radius: 10px;
+  border: none;
   cursor: pointer;
 }
 
@@ -106,4 +107,43 @@ h3 {
 .footer-text {
   font-size: 12px;
   line-height: 1;
+}
+
+.index-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
+.index-title {
+  color: #7c0909;
+  margin: 20px 0 0;
+}
+
+.main-image {
+  width: 900px;
+  object-fit: cover;
+  background-repeat: no-repeat;
+}
+
+.search-form {
+  margin: 15px 0;
+}
+
+.search-input {
+  width: 450px;
+  height: 30px;
+  border-radius: 5px;
+  border: solid 1px #7c0909;
+}
+
+.find-button {
+  height: 30px;
+  background-color: #7c0909;
+  color: #eceaea;
+  padding: 0 25px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
