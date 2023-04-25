@@ -7,7 +7,7 @@ router.get("/user/signup", (req, res, next) => {
 });
 
 router.post("/user/signup", (req, res, next) => {
-  const { username, password } = req.body;
+  const { username, email, password } = req.body;
 
   // Validation
   // Check if username is empty
@@ -42,7 +42,7 @@ router.post("/user/signup", (req, res, next) => {
       console.log(hash);
 
       // Create user
-      User.create({ username: username, password: hash })
+      User.create({ username: username, email: email, password: hash })
         .then((createdUser) => {
           console.log(createdUser);
           res.redirect("/user/login");

@@ -1,12 +1,15 @@
-<h1>Sign up</h1>
-<form action="/auth/signup" method="POST">
-  <label for="username">Username:</label>
-  <input type="text" name="username" required />
+<h1 class="form-title">Sign up</h1>
+<form class="form" action="/user/signup" method="POST">
 
-  <label for="password">Password:</label>
-  <input type="password" name="password" required />
+  <input class="form-input" type="text" name="username" placeholder="Username" required />
 
-  <button type="submit">Sign up</button>
+  <input class="form-input" type="text" name="email" placeholder="Email" required />
+
+  <input class="form-input" type="password" name="password" placeholder="Password" required />
+
+  <button class="form-button" type="submit">Sign up</button>
+
+  <p class="form-text">Already have an account? <br><a class="form-link" href="/login">Log in here</a></p>
 </form>
 
 {{#if message}}
