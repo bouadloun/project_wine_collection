@@ -94,7 +94,8 @@ a {
 }
 
 footer {
-  position: fixed;
+  /*position: fixed;*/
+  position: relative;
   background-color: #7c0909;
   color: #eceaea;
   margin: 0;
@@ -176,4 +177,18 @@ h3 {
   color:#7c0909;
   text-align: right;
   margin-left: 900px;
+}
+
+.wine-container {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.wine-image {
+  width: 50px;
+  object-fit: cover;
+}
+
+.review-input {
+  margin: 10px 0 0;
 }
