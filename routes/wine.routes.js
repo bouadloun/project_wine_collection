@@ -39,4 +39,14 @@ router.get("/single-wine", (req, res) => {
     .catch((error) => console.log(error));
 });
 
+router.get("/single-wine", (req, res) => {
+  Wine.find()
+    .then((responseFromDB) => {
+
+      console.log("Single wine from the database: ", responseFromDB[wineIndex]);
+      res.render("wine/single-wine", { singleWine: responseFromDB[wineIndex] });
+    })
+    .catch((error) => console.log(error));
+});
+
 module.exports = router;
