@@ -94,11 +94,13 @@ a {
 }
 
 footer {
-  position: relative;
+  position: fixed;
   background-color: #7c0909;
   color: #eceaea;
-  margin: 30px 0 0;
-  padding: 15px;
+  margin: 0;
+  padding: 8px 15px;
+  bottom: 0;
+  width: 100%;
 }
 
 h3 {
@@ -148,4 +150,30 @@ h3 {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
+.profile-texts {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 36px;
+}
+
+.profile-text {
+  margin: 0 120px 20px 40px;
+}
+
+.profile-link {
+  cursor: pointer;
+  text-decoration: none;
+  color:#7c0909;
+  text-align: right;
+  margin-left: 900px;
 }
