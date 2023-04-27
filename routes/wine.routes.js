@@ -101,4 +101,15 @@ router.get("/wines/:winename", (req, res) => {
   });
 });
 
+router.post("/wines/:wineId/reviews", (req, res) => {
+  const { username, review } = req.body;
+  const wineId = req.params.wineId;
+
+  Wine.findByIdAndUpdate(wineId, {
+    $push: { reviews: { username, review } },
+  }).then(() => {
+    res.redirect(`/wines/${wineId}`);
+  });
+});
+
 module.exports = router;
