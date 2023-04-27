@@ -226,6 +226,7 @@ h3 {
 
 .review-input {
   margin: 10px 0 0;
+  font-family: Helvetica;
 }
 
 .singlewine-container {
@@ -267,6 +268,38 @@ h3 {
 }
 
 .review-form {
-  margin: 56px 0;
-  align-self: end;
+  margin: 35px 0;
+}
+
+.add-review-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: end;
+}
+
+.add-review-title {
+  margin: 15px 0 0;
+  font-size: 23px;
+}
+
+.review-container {
+  display: flex;
+  margin: 50px auto;
+  flex-direction: column;
+}
+
+.review-container hr {
+  border: none;
+  height: 1px;
+  background-color: #333;
+  margin: 20px 0;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.review-container h2 {
+  margin: 20px 0 0 0;
+  text-transform: uppercase;
 }
