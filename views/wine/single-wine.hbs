@@ -1,30 +1,29 @@
-<div>
-  <img src={{singleWine.image}} alt="wine" />
+<div class="singlewine-container">
+  <div class="singlewine-about">
+    <img class="singlewine-image" src={{singleWine.image}} alt="wine"/>
+    <div class="singlewine-description">
+      <h2 class="singlewine-title">{{singleWine.wine}}</h2>
+      <p class="singlewine-text"><b>Winery: </b>{{singleWine.winery}}</p>
+      <p class="singlewine-text"><b>Description: </b>{{singleWine.about}}</p>
+      <p class="singlewine-text"><b>Origin: </b>{{singleWine.origin}}</p>
+      <p class="singlewine-text"><b>Rating: </b>{{singleWine.rating}}</p>
+    </div>
+  </div>
+
+<div class="review-container">
+  <hr>
+  <h2>Review</h2>
 </div>
-<h2>
-  {{singleWine.wine}}
-</h2>
-<p>
-  <b>Winery:</b>
-  {{singleWine.winery}}
-</p>
-<p>
-  <b>Description:</b>
-  {{singleWine.about}}
-</p>
-<p>
-  <b>Origin</b>
-  {{singleWine.origin}}
-</p>
-<p>
-  <b>Rating:</b>
-  {{singleWine.rating}}
-</p>
 
-<form class="form" action="/wines/" + {{singleWine._id}} + "/reviews" method="POST">
-  <input class="from-input" type="text" name="username" placeholder="Name" required />
+<div class="add-review-container">
+  <h2 class="add-review-title">Write a review</h2>
+  <form class="form review-form" action="/wines/" + {{singleWine._id}} + "/reviews" method="POST">
+     <input class="from-input" type="text" name="username" placeholder="Name" required />
 
-  <textarea class="review-input" name="review" placeholder="Your review" required cols="30" rows="10"></textarea>
-  
-  <button class="form-button" type="submit">Leave review</button>
-</form>
+     <textarea class="review-input" name="review" placeholder="Your review" required cols="30" rows="10"></textarea>
+
+     <button class="form-button" type="submit">Leave review</button>
+  </form>
+</div>
+
+</div>
