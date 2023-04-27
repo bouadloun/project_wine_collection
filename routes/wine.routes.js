@@ -14,6 +14,57 @@ router.get("/wines", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+//Get a specific wine type
+router.get("/red-wines", (req, res, next) => {
+  // Get all wines from db
+  Wine.find({ type: "red" })
+    .then((winesFromDB) => {
+      console.log(winesFromDB);
+      res.render("wine/wines", { wines: winesFromDB });
+    })
+    .catch((err) => next(err));
+});
+
+router.get("/white-wines", (req, res, next) => {
+  // Get all wines from db
+  Wine.find({ type: "white" })
+    .then((winesFromDB) => {
+      console.log(winesFromDB);
+      res.render("wine/wines", { wines: winesFromDB });
+    })
+    .catch((err) => next(err));
+});
+
+router.get("/rose-wines", (req, res, next) => {
+  // Get all wines from db
+  Wine.find({ type: "rose" })
+    .then((winesFromDB) => {
+      console.log(winesFromDB);
+      res.render("wine/wines", { wines: winesFromDB });
+    })
+    .catch((err) => next(err));
+});
+
+router.get("/sparkling-wines", (req, res, next) => {
+  // Get all wines from db
+  Wine.find({ type: "sparkling" })
+    .then((winesFromDB) => {
+      console.log(winesFromDB);
+      res.render("wine/wines", { wines: winesFromDB });
+    })
+    .catch((err) => next(err));
+});
+
+router.get("/port-wines", (req, res, next) => {
+  // Get all wines from db
+  Wine.find({ type: "port" })
+    .then((winesFromDB) => {
+      console.log(winesFromDB);
+      res.render("wine/wines", { wines: winesFromDB });
+    })
+    .catch((err) => next(err));
+});
+
 router.post("/wine/wines", (req, res, next) => {
   console.log(req.body);
   const { image, wine, winery, about, origin, rating } = req.body;
@@ -26,6 +77,7 @@ router.post("/wine/wines", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+//GET SINGLE WINE
 router.get("/single-wine", (req, res) => {
   Wine.find()
     .then((responseFromDB) => {
@@ -39,14 +91,14 @@ router.get("/single-wine", (req, res) => {
     .catch((error) => console.log(error));
 });
 
-router.get("/single-wine", (req, res) => {
-  Wine.find()
-    .then((responseFromDB) => {
+// GIVE THE URL TO A SINGLE WINE
+router.get("/wines/:winename", (req, res) => {
+  const winename = req.params.winename;
+  console.log(winename);
 
-      console.log("Single wine from the database: ", responseFromDB[wineIndex]);
-      res.render("wine/single-wine", { singleWine: responseFromDB[wineIndex] });
-    })
-    .catch((error) => console.log(error));
+  Wine.findOne({ wine: winename }).then((wineFromDB) => {
+    res.render("wine/single-wine", { singleWine: wineFromDB });
+  });
 });
 
 module.exports = router;
