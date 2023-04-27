@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Wine = require("../models/Wine.model");
 const MongoStore = require("connect-mongo");
+const Review = require("../models/Review.model");
 /* GET wine page */
 
 router.get("/wines", (req, res, next) => {
@@ -55,16 +56,6 @@ router.get("/sparkling-wines", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.get("/port-wines", (req, res, next) => {
-  // Get all wines from db
-  Wine.find({ type: "port" })
-    .then((winesFromDB) => {
-      console.log(winesFromDB);
-      res.render("wine/wines", { wines: winesFromDB });
-    })
-    .catch((err) => next(err));
-});
-
 router.post("/wine/wines", (req, res, next) => {
   console.log(req.body);
   const { image, wine, winery, about, origin, rating } = req.body;
@@ -77,7 +68,7 @@ router.post("/wine/wines", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-//GET SINGLE WINE
+//GET RANDOM WINE
 router.get("/single-wine", (req, res) => {
   Wine.find()
     .then((responseFromDB) => {
@@ -91,25 +82,41 @@ router.get("/single-wine", (req, res) => {
     .catch((error) => console.log(error));
 });
 
-// GIVE THE URL TO A SINGLE WINE
+// GIVE SINGLE WINE
 router.get("/wines/:winename", (req, res) => {
   const winename = req.params.winename;
   console.log(winename);
 
-  Wine.findOne({ wine: winename }).then((wineFromDB) => {
-    res.render("wine/single-wine", { singleWine: wineFromDB });
-  });
+  Wine.findOne({ wine: winename })
+    .populate("reviews")
+    .then((wineFromDB) => {
+      console.log(wineFromDB);
+      res.render("wine/single-wine", { singleWine: wineFromDB });
+    });
 });
 
-router.post("/wines/:wineId/reviews", (req, res) => {
+//CREATE REVIEWS
+router.post("/wines/:winename/reviews", (req, res) => {
   const { username, review } = req.body;
-  const wineId = req.params.wineId;
-
-  Wine.findByIdAndUpdate(wineId, {
-    $push: { reviews: { username, review } },
-  }).then(() => {
-    res.redirect(`/wines/${wineId}`);
+  const winename = req.params.winename;
+  console.log(winename);
+  Review.create({ username: username, review: review }).then((newReview) => {
+    Wine.findOneAndUpdate(
+      { wine: winename },
+      { $push: { reviews: newReview._id } }
+    ).then(() => {
+      res.redirect(`/wines/${winename}`);
+    });
   });
+  /*Wine.findOneAndUpdate(
+    { wine: winename },
+    {
+      $push: { reviews: { username, review } },
+    }
+  ).then((response) => {
+    console.log(response);
+    res.redirect(`/wines/${winename}`);
+  });*/
 });
 
 module.exports = router;
