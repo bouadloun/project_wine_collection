@@ -227,3 +227,46 @@ h3 {
 .review-input {
   margin: 10px 0 0;
 }
+
+.singlewine-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 200px;
+}
+
+.singlewine-about {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 100px 0 0;
+  grid-gap: 20px;
+}
+
+.singlewine-description {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 45px 0 0;
+}
+
+.singlewine-image {
+  width: 200px;
+  height: 500px;
+  object-fit: contain;
+}
+
+.singlewine-title {
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.singlewine-text {
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0 0 20px;
+}
+
+.review-form {
+  margin: 56px 0;
+  align-self: end;
+}
