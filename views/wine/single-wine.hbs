@@ -21,7 +21,7 @@
   {{singleWine.rating}}
 </p>
 
-<form class="form" action="" method="POST">
+<form class="form" action="/wines/" + {{singleWine._id}} + "/reviews" method="POST">
   <input class="from-input" type="text" name="username" placeholder="Name" required />
 
   <textarea class="review-input" name="review" placeholder="Your review" required cols="30" rows="10"></textarea>

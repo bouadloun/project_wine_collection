@@ -6,12 +6,19 @@ const wineSchema = new Schema({
   wine: { type: String, unique: true },
   type: {
     type: String,
-    enum: ["sparkling", "red", "white", "rose", "port", "dessert"],
+    enum: ["sparkling", "red", "white", "rose"],
   },
   about: String,
   origin: String,
   image: String,
   rating: Number,
+
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Review",
+    },
+  ],
 });
 
 const Wine = mongoose.model("Wine", wineSchema);
