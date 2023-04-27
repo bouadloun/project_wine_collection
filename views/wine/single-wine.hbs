@@ -17,13 +17,13 @@
 
 <div class="add-review-container">
   <h2 class="add-review-title">Write a review</h2>
-  <form class="form review-form" action="" method="POST">
+  <form class="form review-form" action="/wines/" + {{singleWine._id}} + "/reviews" method="POST">
      <input class="from-input" type="text" name="username" placeholder="Name" required />
 
      <textarea class="review-input" name="review" placeholder="Your review" required cols="30" rows="10"></textarea>
-  
+
      <button class="form-button" type="submit">Leave review</button>
   </form>
 </div>
-  
+
 </div>
