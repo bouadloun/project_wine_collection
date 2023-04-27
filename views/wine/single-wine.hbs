@@ -11,12 +11,10 @@
   </div>
 
   <div class="review-container">
-    <hr />
-
     {{#each singleWine.reviews}}
-      {{username}}
-      {{review}}
-
+      <h4>{{username}}</h4>
+      <p class="review-text">{{review}}</p>
+      <hr />
     {{/each}}
     <h2>Review</h2>
 
@@ -24,27 +22,10 @@
 
   <div class="add-review-container">
     <h2 class="add-review-title">Write a review</h2>
-    <form
-      class="form review-form"
-      action="/wines/{{singleWine.wine}}/reviews"
-      method="POST"
-    >
-      <input
-        class="from-input"
-        type="text"
-        name="username"
-        placeholder="Name"
-        required
-      />
+    <form class="form review-form" action="/wines/{{singleWine.wine}}/reviews" method="POST">
+      <input class="from-input" type="text" name="username" placeholder="Name" required/>
 
-      <textarea
-        class="review-input"
-        name="review"
-        placeholder="Your review"
-        required
-        cols="30"
-        rows="10"
-      ></textarea>
+      <textarea class="review-input" name="review" placeholder="Your review" required cols="30" rows="10"></textarea>
 
       <button class="form-button" type="submit">Leave review</button>
     </form>
