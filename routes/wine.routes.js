@@ -3,6 +3,7 @@ const router = express.Router();
 const Wine = require("../models/Wine.model");
 const MongoStore = require("connect-mongo");
 const Review = require("../models/Review.model");
+const { isLoggedIn } = require("../middleware/user.logedin");
 /* GET wine page */
 
 router.get("/wines", (req, res, next) => {
@@ -96,7 +97,7 @@ router.get("/wines/:winename", (req, res) => {
 });
 
 //CREATE REVIEWS
-router.post("/wines/:winename/reviews", (req, res) => {
+router.post("/wines/:winename/reviews", isLoggedIn, (req, res) => {
   const { username, review } = req.body;
   const winename = req.params.winename;
   console.log(winename);
