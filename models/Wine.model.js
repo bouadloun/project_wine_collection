@@ -5,6 +5,7 @@ const wineSchema = new Schema({
   winery: String,
   wine: { type: String, unique: true },
   type: {
+    type: String,
     enum: ["sparkling", "red", "white", "rose", "port", "dessert"],
   },
   about: String,
