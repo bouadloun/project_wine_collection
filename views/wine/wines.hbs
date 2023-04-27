@@ -1,25 +1,17 @@
-{{#each wines}}
-  <div class="wine-container">
-    <a href="">
-      <img class="wine-image" src={{image}} alt="wine" />
-      <h2>{{wine}}</h2>
-    </a>
-  </div>
-  <!--<p>
-    <b>Winery:</b>
-    {{winery}}
-  </p>
-  <p>
-    <b>Description:</b>
-    {{about}}
-  </p>
-  <p>
-    <b>Origin:</b>
-    {{origin}}
-  </p>
-  <p>
-    <b>Rating:</b>
-    {{rating}}
-  </p>-->
+<div class="all-wines">
+  <form class="search-form" action="/wine/single-wine" method="GET">
+    <input class="search-input" type="text" placeholder="Pick your type of wine!..">
+    <button class="find-button" type="submit">Search</button>
+  </form>
 
-{{/each}}
+  <div class="wines-container">
+    {{#each wines}}
+      <a class="wine-link" href="">
+        <div class="wine-container">
+          <img class="wine-image" src={{image}} alt="wine" />
+          <h2 class="wines-title">{{wine}}</h2>
+        </div>
+      </a>
+    {{/each}}
+  </div>
+</div>
